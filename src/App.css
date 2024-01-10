@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300&family=Teko&display=swap');
+
+/* fuentes
+font-family: 'Prompt',
+sans-serif;
+font-family: 'Teko',
+sans-serif;
+*/
+
 #root {
  min-height: 100vh;
  display: flex;
@@ -18,5 +27,11 @@ Form{
     -webkit-backdrop-filter: blur(4px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
+    font-family: 'Prompt',sans-serif;
+}
+
+h1{
+  font-family: 'Teko',
+      sans-serif;
 }
 

@@ -16,7 +16,7 @@ const FormularioPelicula = () => {
       <Form className="p-3">
         {/* Nombre Pelicula */}
         <Form.Group className="mb-3" onSubmit={handleSubmit(onSubmit) }>
-          <Form.Label>Nombre de Pelicula</Form.Label>
+          <Form.Label className="text-light">Nombre de Pelicula</Form.Label>
             <Form.Control type="text"
              placeholder="Nombre Pelicula"
               {...register("Nombre Pelicula", 
@@ -29,7 +29,7 @@ const FormularioPelicula = () => {
         </Form.Group>
           {/* Descripcion */}
         <Form.Group className="my-3">
-          <Form.Label>Descripción</Form.Label>
+          <Form.Label className="text-light">Descripción</Form.Label>
             <Form.Control
              as="textarea"
              rows={4}
@@ -58,9 +58,11 @@ const FormularioPelicula = () => {
         </Form.Group>
 
            {/* boton */}
+           <div className="text-center">
             <Button variant="dark" type='submit'>
               Crear Pelicula
             </Button>
+           </div>
         </Form>
     
     </Container>
