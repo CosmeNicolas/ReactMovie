@@ -1,37 +1,42 @@
 import { Button, ListGroup, Card } from 'react-bootstrap';
-import cine from '../assets/cine.jpeg'
 
 
-const Peliculas = () => {
+
+const Peliculas = ({peliculas}) => {
   return (
     <>
-
-      <Card  className='d-flex flex-row  my-3'>
-      <div>
-        <Card.Img variant="top" src={cine} className='img-fluid' />
-        </div>
-        <div>
-        <Card.Body>
-          <Card.Title>Card Title</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
-        </Card.Body>
-        <ListGroup className="list-group-flush">
-          <ListGroup.Item>Cras justo odio</ListGroup.Item>
-          <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-          <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-        </ListGroup>
-        <Card.Body>
-          <Button variant="primary">Go somewhere</Button>
-        </Card.Body>
-        </div>
-      </Card>
-      {/* parrafo no hay peliculas cargadas */}
+      {
+        peliculas.length > 0 ? (
+          peliculas.map((pelicula,posicionPelicula)=>(
+            <Card key={posicionPelicula} className='d-flex flex-row  my-3'>
+              <div>
+                <Card.Img variant="top" src={pelicula.rutaImg} className='img-fluid' />
+              </div>
+              <div>
+                <Card.Body>
+                  <Card.Title>{pelicula.nomrePelicula}</Card.Title>
+                  <Card.Text>
+                   {pelicula.descripcion}
+                  </Card.Text>
+                </Card.Body>
+                <ListGroup className="list-group-flush">
+                  <ListGroup.Item>{pelicula.genero}</ListGroup.Item>
+                </ListGroup>
+                <Card.Body>
+                  <Button variant="dark">Borrar Pelicula</Button>
+                </Card.Body>
+              </div>
+            </Card>
+          ))
+        ) : (
+   
        <Card.Body>
         <Card.Title className='py-3 my-3 bg bg-body-tertiary border-title text-center rounded-2 '>No hay Peliculas Cargadas</Card.Title>
       </Card.Body> 
+
+        )
+      }
+      
     </>
     );
   }
