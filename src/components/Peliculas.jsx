@@ -2,7 +2,7 @@ import { Button, ListGroup, Card } from 'react-bootstrap';
 
 
 
-const Peliculas = ({peliculas}) => {
+const Peliculas = ({peliculas, borrarPelicula}) => {
   return (
     <>
       {
@@ -10,7 +10,7 @@ const Peliculas = ({peliculas}) => {
           peliculas.map((pelicula,posicionPelicula)=>(
             <Card key={posicionPelicula} className='d-flex flex-row  my-3'>
               <div>
-                <Card.Img variant="top" src={pelicula.rutaImg} className='img-fluid' />
+                <Card.Img variant="top" src={pelicula.rutaImg} className='img-fluid card-img' />
               </div>
               <div>
                 <Card.Body>
@@ -23,7 +23,7 @@ const Peliculas = ({peliculas}) => {
                   <ListGroup.Item>{pelicula.genero}</ListGroup.Item>
                 </ListGroup>
                 <Card.Body>
-                  <Button variant="dark">Borrar Pelicula</Button>
+                  <Button onClick={()=>borrarPelicula(pelicula)} variant="dark">Borrar Pelicula</Button>
                 </Card.Body>
               </div>
             </Card>

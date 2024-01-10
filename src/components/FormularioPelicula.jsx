@@ -9,6 +9,11 @@ const FormularioPelicula = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const [peliculas, setPeliculas] = useState([]);
 
+  const borrarPelicula = (nombrePelicula)=>{
+    const tomarPelicula = peliculas.filter((pelicula)=> pelicula !== nombrePelicula);
+    setPeliculas(tomarPelicula)
+  }
+
   const onSubmit = (data) => {
 
     const nuevaPelicula = {
@@ -92,7 +97,7 @@ const FormularioPelicula = () => {
             </Button>
           </div>
         </Form>
-        <Peliculas peliculas={peliculas} />
+        <Peliculas peliculas={peliculas} borrarPelicula={borrarPelicula} />
       </Container>
     );
   
