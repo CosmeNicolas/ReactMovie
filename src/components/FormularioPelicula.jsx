@@ -1,14 +1,31 @@
 import { useForm } from "react-hook-form"
-import { Button, Container, Form ,Card} from 'react-bootstrap';
+import { Button, Container, Form } from 'react-bootstrap';
 import Peliculas from "./Peliculas";
+import { useState } from "react";
+
 
 const FormularioPelicula = () => {
 
-
+  const [nombrePelicula, setNombrePelicula] = useState('');
+  const [descripcion, setDescripcion] = useState('')
+  const [genero, setGenero] = useState('')
 
 
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
+  const onSubmit = (data) =>{
+
+    const nombrePelicula = data["Nombre Pelicula"];
+    const descripcion = data["Descripción"];
+    const genero = data["genero"]
+
+    console.log("Nombre Pelicula", nombrePelicula)
+    console.log("Descripción", descripcion)
+    console.log("genero", genero)
+
+    
+
+
+  };
   console.log(errors) 
 
 
@@ -45,10 +62,12 @@ const FormularioPelicula = () => {
 
           {/* select */}
         <Form.Group className="mb-3">
-          <Form.Select disabled  
+          <Form.Select   
+          className="form-select"
           {...register("genero",
            { required: true 
            })}>
+              <option value="">Selecciona un género</option>
               <option value="Drama">Drama</option>
               <option value="Comedia">Comedia</option>
               <option value="Suspenso">Suspenso</option>
@@ -66,10 +85,6 @@ const FormularioPelicula = () => {
            </div>
         </Form>
 
-            {/* parrafo no hay peliculas cargadas */}
-      <Card.Body>
-        <Card.Title className='py-3 my-3 bg bg-body-tertiary border-title text-center rounded-2 '>No hay Peliculas Cargadas</Card.Title>
-      </Card.Body>
            
            <Peliculas/>
 

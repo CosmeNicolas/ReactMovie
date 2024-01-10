@@ -38,3 +38,25 @@ h1{
 .card-img{
   max-width: 540px;
 }
+
+
+/* form select  */
+/* Estilo para las opciones del Form.Select */
+.form-select {
+  /* Ajusta el ancho según tus necesidades */
+  width: 50%;
+}
+
+/* Estilo para las opciones del Form.Select cuando están abiertas */
+.form-select:active,
+.form-select:focus {
+  /* Ajusta el tamaño del menú desplegable según tus necesidades */
+  height: auto;
+}
+
+/* Estilo para las opciones del Form.Select cuando están desplegadas */
+.form-select option {
+  /* Ajusta el espaciado y el tamaño del texto según tus necesidades */
+  padding: 10px;
+  font-size: 14px;
+}

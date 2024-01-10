@@ -28,7 +28,10 @@ const Peliculas = () => {
         </Card.Body>
         </div>
       </Card>
-      
+      {/* parrafo no hay peliculas cargadas */}
+       <Card.Body>
+        <Card.Title className='py-3 my-3 bg bg-body-tertiary border-title text-center rounded-2 '>No hay Peliculas Cargadas</Card.Title>
+      </Card.Body> 
     </>
     );
   }
