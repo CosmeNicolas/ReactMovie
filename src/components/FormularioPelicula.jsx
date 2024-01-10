@@ -12,7 +12,7 @@ const FormularioPelicula = () => {
 
 
   return (
-    <Container d-flex align-item-center>
+    <Container >
       <Form className="p-3">
         {/* Nombre Pelicula */}
         <Form.Group className="mb-3" onSubmit={handleSubmit(onSubmit) }>

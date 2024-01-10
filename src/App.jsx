@@ -10,8 +10,8 @@ function App() {
 
   return (
     <>
-    <Container className='main'>
-        <h1 className='text-center'>🎥Peliculas🍿</h1>
+    <Container fluid className='main'>
+        <h1 className='text-center text-light'>🎥Peliculas🍿</h1>
         <div>
           <FormularioPelicula/>
         </div>

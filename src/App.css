@@ -6,6 +6,9 @@
 
 .main{
   flex-grow: 1;
+  background-image: url('./assets/cine.jpeg');
+  background-size: cover;
+  background-position: center;
 }
 
 Form{
@@ -16,3 +19,4 @@ Form{
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
+
