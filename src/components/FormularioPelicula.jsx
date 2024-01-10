@@ -1,9 +1,10 @@
-
 import { useForm } from "react-hook-form"
-
-import { Button, Container, Form } from 'react-bootstrap';
+import { Button, Container, Form ,Card} from 'react-bootstrap';
+import Peliculas from "./Peliculas";
 
 const FormularioPelicula = () => {
+
+
 
 
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -13,9 +14,9 @@ const FormularioPelicula = () => {
 
   return (
     <Container >
-      <Form className="p-3">
+      <Form className="p-3" onSubmit={handleSubmit(onSubmit)}>
         {/* Nombre Pelicula */}
-        <Form.Group className="mb-3" onSubmit={handleSubmit(onSubmit) }>
+        <Form.Group className="mb-3" >
           <Form.Label className="text-light">Nombre de Pelicula</Form.Label>
             <Form.Control type="text"
              placeholder="Nombre Pelicula"
@@ -45,7 +46,7 @@ const FormularioPelicula = () => {
           {/* select */}
         <Form.Group className="mb-3">
           <Form.Select disabled  
-          {...register("Género",
+          {...register("genero",
            { required: true 
            })}>
               <option value="Drama">Drama</option>
@@ -64,7 +65,14 @@ const FormularioPelicula = () => {
             </Button>
            </div>
         </Form>
-    
+
+            {/* parrafo no hay peliculas cargadas */}
+      <Card.Body>
+        <Card.Title className='py-3 my-3 bg bg-body-tertiary border-title text-center rounded-2 '>No hay Peliculas Cargadas</Card.Title>
+      </Card.Body>
+           
+           <Peliculas/>
+
     </Container>
   );
 };

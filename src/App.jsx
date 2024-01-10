@@ -11,7 +11,7 @@ function App() {
   return (
     <>
     <Container fluid className='main'>
-        <h1 className='text-center text-light'>🎥Peliculas🍿</h1>
+        <h1 className='text-center text-light mt-5'>🎥Peliculas🍿</h1>
         <div>
           <FormularioPelicula/>
         </div>
