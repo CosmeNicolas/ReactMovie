@@ -1,8 +1,42 @@
+import Swal from 'sweetalert2';
 import { Button, ListGroup, Card, Container, Col ,Row } from 'react-bootstrap';
 
 
 
 const Peliculas = ({ peliculas, borrarPelicula }) => {
+  const confirmarBorrarPelicula = (pelicula) => {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Esta acción no se puede deshacer',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#116A7B',
+      cancelButtonColor: '#a44747',
+      confirmButtonText: 'Sí, Borrar',
+      cancelButtonText: 'Cancelar',
+      customClass: {
+        popup: 'container-alert',
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        borrarPelicula(pelicula);
+        mostrarMensajeBorrado();
+      }
+    });
+  };
+
+  const mostrarMensajeBorrado = () => {
+    Swal.fire({
+      title: '¡Borrado!',
+      text: 'La película ha sido eliminada',
+      icon: 'success',
+      confirmButtonColor: '#116A7B',
+      customClass: {
+        popup: 'container-alert'
+      }
+    });
+  };
+
   return (
     <>
       <Container className=''>
@@ -25,7 +59,7 @@ const Peliculas = ({ peliculas, borrarPelicula }) => {
                     <ListGroup.Item className=' bg bg-dark text-light'>Género:{pelicula.genero}</ListGroup.Item>
                 </ListGroup>
                   <Card.Body className="mt-auto">
-                  <Button onClick={() => borrarPelicula(pelicula)} variant="danger">Borrar Pelicula</Button>
+                    <Button onClick={() => confirmarBorrarPelicula(pelicula)} variant="danger">Borrar Pelicula</Button>
                 </Card.Body>
               </Card>
               </Col>

@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form"
 import { Button, Container, Form } from 'react-bootstrap';
-import Peliculas from "./Peliculas";
 import { useEffect, useState } from "react";
+import Peliculas from "./Peliculas";
+import Swal from 'sweetalert2';
 
 
 
@@ -33,6 +34,13 @@ const FormularioPelicula = () => {
 
     setPeliculas([...peliculas, nuevaPelicula])
     reset();
+
+    Swal.fire({
+      title: 'Película Agregada',
+      text: 'La película se ha agregado exitosamente.',
+      icon: 'success',
+      confirmButtonColor: '#116A7B'
+    });
   };
 
     return (
