@@ -1,4 +1,4 @@
-# Turnos Veterinaria 🐶
+# 🍿 React Movie 📽️
 
 En este proyecto , se establecio un formulario usando los hooks de react ,para poder cargar mascotas solicitando turnos con horarios y fechas se debe completar el formulario y una vez aceptado se los mostrata en pantalla. 
 
