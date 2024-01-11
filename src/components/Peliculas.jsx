@@ -1,45 +1,48 @@
-import { Button, ListGroup, Card } from 'react-bootstrap';
+import { Button, ListGroup, Card, Container, Col ,Row } from 'react-bootstrap';
 
 
 
-const Peliculas = ({peliculas, borrarPelicula}) => {
+const Peliculas = ({ peliculas, borrarPelicula }) => {
   return (
     <>
-      {
-        peliculas.length > 0 ? (
-          peliculas.map((pelicula,posicionPelicula)=>(
-            <Card key={posicionPelicula} className='d-flex flex-row  my-3'>
-              <div>
+      <Container className=''>
+        <Row xs={1} md={2} lg={3}>
+        {
+          peliculas.length > 0 ? (
+            peliculas.map((pelicula, posicionPelicula) => (
+              <Col key={posicionPelicula} className='my-3'>
+                <Card className='bg bg-dark text-light h-100 d-flex flex-column'>
+
                 <Card.Img variant="top" src={pelicula.rutaImg} className='img-fluid card-img' />
-              </div>
-              <div>
-                <Card.Body>
+
+                <Card.Body >
                   <Card.Title>{pelicula.nomrePelicula}</Card.Title>
                   <Card.Text>
-                   {pelicula.descripcion}
+                    Descripción: {pelicula.descripcion}
                   </Card.Text>
                 </Card.Body>
-                <ListGroup className="list-group-flush">
-                  <ListGroup.Item>{pelicula.genero}</ListGroup.Item>
+                <ListGroup className="list-group-flush bg bg-dark text-light ">
+                    <ListGroup.Item className=' bg bg-dark text-light'>Género:{pelicula.genero}</ListGroup.Item>
                 </ListGroup>
-                <Card.Body>
-                  <Button onClick={()=>borrarPelicula(pelicula)} variant="dark">Borrar Pelicula</Button>
+                  <Card.Body className="mt-auto">
+                  <Button onClick={() => borrarPelicula(pelicula)} variant="danger">Borrar Pelicula</Button>
                 </Card.Body>
-              </div>
-            </Card>
-          ))
-        ) : (
-   
-       <Card.Body>
-        <Card.Title className='py-3 my-3 bg bg-body-tertiary border-title text-center rounded-2 '>No hay Peliculas Cargadas</Card.Title>
-      </Card.Body> 
+              </Card>
+              </Col>
+            ))
+          ) : (
 
-        )
-      }
-      
+            <Card.Body>
+              <Card.Title className='py-3 my-3 bg bg-body-tertiary border-title text-center rounded-2 '>No hay Peliculas Cargadas</Card.Title>
+            </Card.Body>
+
+          )
+        }
+        </Row>
+      </Container>
     </>
-    );
-  }
+  );
+}
 
 
 export default Peliculas;

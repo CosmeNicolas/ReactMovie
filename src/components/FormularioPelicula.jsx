@@ -1,18 +1,24 @@
 import { useForm } from "react-hook-form"
 import { Button, Container, Form } from 'react-bootstrap';
 import Peliculas from "./Peliculas";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 
 const FormularioPelicula = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
-  const [peliculas, setPeliculas] = useState([]);
+  const peliculasGuardadas = JSON.parse(localStorage.getItem('guardarPelicula')) || [];
+  const [peliculas, setPeliculas] = useState(peliculasGuardadas);
 
   const borrarPelicula = (nombrePelicula)=>{
     const tomarPelicula = peliculas.filter((pelicula)=> pelicula !== nombrePelicula);
     setPeliculas(tomarPelicula)
   }
+
+  useEffect(() => {
+    localStorage.setItem('guardarPelicula',JSON.stringify(peliculas))
+  }, [peliculas])
+  
 
   const onSubmit = (data) => {
 
@@ -56,9 +62,9 @@ const FormularioPelicula = () => {
               {...register("Descripción",
                 {
                   required: true,
-                  max: 50,
+                  max: 200,
                   min: 3,
-                  maxLength: 50
+                  maxLength: 200
                 })} />
           </Form.Group>
 
@@ -77,6 +83,8 @@ const FormularioPelicula = () => {
               <option value="Terror">Terror</option>
               <option value="Amor">Amor</option>
               <option value="Documental">Documental</option>
+              <option value="Documental">Animación</option>
+              <option value="Documental">Acción</option>
             </Form.Select>
           </Form.Group>
 
