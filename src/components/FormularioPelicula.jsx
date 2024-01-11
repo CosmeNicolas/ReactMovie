@@ -24,7 +24,7 @@ const FormularioPelicula = () => {
 
     const nuevaPelicula = {
       nombrePelicula: data["Nombre Pelicula"],
-      descripcion: data["Descripción"],
+      descripcion: data["Descripcion"],
       genero: data["genero"],
       rutaImg: data["rutaImg"]
     };
@@ -46,7 +46,6 @@ const FormularioPelicula = () => {
               {...register("Nombre Pelicula",
                 {
                   required: true,
-                  max: 50,
                   min: 3,
                   maxLength: 50
                 })} />
@@ -59,10 +58,9 @@ const FormularioPelicula = () => {
               as="textarea"
               rows={4}
               type="text" placeholder="Descripción"
-              {...register("Descripción",
+              {...register("Descripcion",
                 {
                   required: true,
-                  max: 200,
                   min: 3,
                   maxLength: 200
                 })} />
